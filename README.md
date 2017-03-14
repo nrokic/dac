@@ -53,7 +53,7 @@ Documentation Reference: https://docs.docker.com/engine/swarm/
   * Install your license.
 * Deploy NGINX on UCP LB node (`dac-lb-0`)
 	* NGINX needs to listen on ports 80/443 and forward to non-standard port of UCP. Please use port *12390* as the backend port. 
-	* Documentation [here]()
+	* Reconfigure `ucp-nginx.conf` config file available in this directory with your setup's info by substituting `MANAGER_IP` in the config file. The launch the nginx container using `docker run -d -p 80:80 -p 443:443 --restart=unless-stopped --name ucp-lb -v ${PWD}/ucp-nginx.conf:/etc/nginx/nginx.conf:ro nginx:stable-alpine`
 * Install external certs using the provided certs.
 * Set up HRM on standard ports 80 and 443.
 * Set up node labels
@@ -71,7 +71,7 @@ Documentation Reference: https://docs.docker.com/engine/swarm/
 
 * Deploy NGINX on LB node for DTR (`dac-lb-1`)
 	* NGINX needs to listen on ports 80/443 and forward to non-standard port of UCP. Please use port *12391* for HTTP and *12392* for  HTTPS.
-	* Documentation [here](https://github.com/nicolaka/dac)
+	*  Reconfigure `dtr-nginx.conf` config file available in this directory with your setup's info by substituting `MANAGER_IP` in the config file. The launch the nginx container using `docker run -d -p 80:80 -p 443:443 --restart=unless-stopped --name dtr-lb -v ${PWD}/dtr-nginx.conf:/etc/nginx/nginx.conf:ro nginx:stable-alpine`
 * Install DTR Version `2.2.2`
 	* Install three DTR replicas on the Manager nodes
 	* Make sure to use correct external url. This should be your DTR's FQDN. 
@@ -101,7 +101,7 @@ Documentation Reference: https://docs.docker.com/engine/swarm/
 **Goal:** Application Deployment Operations
 
 * Deploy pets app
-* 
+
 
 
 
