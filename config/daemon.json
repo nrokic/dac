@@ -1,0 +1,15 @@
+{
+  "debug":true,
+  "experimental":true,
+  "log-driver": "journald",
+  "log-level": "debug",
+  "log-opts": {
+    "tag":"{{.Name}}/{{.ID}}"
+  },
+  "storage-driver": "devicemapper",
+  "storage-opts": [
+     "dm.thinpooldev=/dev/mapper/docker-thinpool",
+     "dm.use_deferred_removal=true",
+     "dm.use_deferred_deletion=true"
+   ]
+}
